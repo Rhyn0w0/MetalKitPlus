@@ -11,6 +11,11 @@ public struct Vertex {
     let position: SIMD3<Float>
     let colorRgb: SIMD3<Float>
     
+    public init(position: SIMD3<Float>, colorRgb: SIMD3<Float>) {
+        self.position = position
+        self.colorRgb = colorRgb
+    }
+    
     static func buildDefaultVertexDescriptor() -> MTLVertexDescriptor {
         let vertexDescriptor = MTLVertexDescriptor()
         

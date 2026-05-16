@@ -7,9 +7,11 @@
 
 import Foundation
 import SwiftUI
+import MetalKit
 
 public extension EnvironmentValues {
     @Entry var metalConfig = MetalConfig()
+    @Entry var metalDevice = MTLCreateSystemDefaultDevice()
     @Entry var metalState = MetalState()
 }
 
@@ -33,4 +35,18 @@ public struct MetalState {
     var library: MTLLibrary?
     var renderPipelineState: MTLRenderPipelineState?
     var depthStencilState: MTLDepthStencilState?
+    
+    public init(
+        device: MTLDevice? = nil,
+        commandQueue: MTLCommandQueue? = nil,
+        library: MTLLibrary? = nil,
+        renderPipelineState: MTLRenderPipelineState? = nil,
+        depthStencilState: MTLDepthStencilState? = nil
+    ) {
+        self.device = device
+        self.commandQueue = commandQueue
+        self.library = library
+        self.renderPipelineState = renderPipelineState
+        self.depthStencilState = depthStencilState
+    }
 }
