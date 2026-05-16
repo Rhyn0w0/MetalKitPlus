@@ -20,7 +20,7 @@ public struct MetalViewPlus: View {
     
     public var body: some View {
         if let device = device {
-            MetalView(device: device, draw: draw)
+            MetalView(draw: draw)
         }
         else {
             Text("Unable to access GPU")

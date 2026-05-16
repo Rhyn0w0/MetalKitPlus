@@ -12,8 +12,6 @@ struct MetalView: UIViewRepresentable {
     
     typealias UpdateHandler = (_ view: MTKView, _ size: CGSize) -> Void
     
-    var device: MTLDevice
-    
     var draw: (_ view: MTKView) -> Void
     var handleUpdate: UpdateHandler?
     
@@ -25,7 +23,7 @@ struct MetalView: UIViewRepresentable {
         let view = MTKView()
         
         view.delegate = context.coordinator
-        view.device = device
+        view.device = context.environment.metalDevice
         view.drawableSize = view.frame.size
         
         view.clearColor = context.environment.metalConfig.clearColor
