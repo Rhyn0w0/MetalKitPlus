@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct MetalConfig {
+public struct MetalConfig {
     var clearColor: MTLClearColor = .init(red: 0, green: 0, blue: 0, alpha: 1)
     
     var colorPixelFormat: MTLPixelFormat = .bgra8Unorm
@@ -22,6 +22,6 @@ struct MetalConfig {
     var depthCompareFunction: MTLCompareFunction = .less
 }
 
-extension EnvironmentValues {
+public extension EnvironmentValues {
     @Entry var metalConfig = MetalConfig()
 }

@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol MetalShape {
+public protocol MetalShape {
     var vertecies: [Vertex] { get }
 }

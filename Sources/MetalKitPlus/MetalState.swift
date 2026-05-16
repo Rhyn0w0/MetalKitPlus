@@ -8,11 +8,11 @@
 import Foundation
 import SwiftUI
 
-extension EnvironmentValues {
+public extension EnvironmentValues {
     @Entry var metalState = MetalState()
 }
 
-struct MetalState {
+public struct MetalState {
     var device: MTLDevice?
     var commandQueue: MTLCommandQueue?
     var library: MTLLibrary?

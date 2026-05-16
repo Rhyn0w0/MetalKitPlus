@@ -4,7 +4,7 @@
 import MetalKit
 
 extension MetalViewPlus {
-    public init (device: MTLDevice, renderLoop: @escaping (MetalRenderLoopController) -> Void) {
-        self.init(device: device, renderLoop: renderLoop)
+    public init (renderLoop: @escaping (MetalRenderLoopController) -> Void) {
+        self.runRenderLoop = renderLoop
     }
 }

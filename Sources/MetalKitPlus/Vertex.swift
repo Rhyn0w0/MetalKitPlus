@@ -7,7 +7,7 @@
 
 import MetalKit
 
-struct Vertex {
+public struct Vertex {
     let position: SIMD3<Float>
     let colorRgb: SIMD3<Float>
     
