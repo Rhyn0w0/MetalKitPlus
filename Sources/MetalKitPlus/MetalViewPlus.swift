@@ -12,7 +12,7 @@ struct MetalViewPlus: View {
     
     @Environment(\.metalState) var metalState
     
-    var renderLoop: (_ controller: MetalRenderLoopController) -> Void
+    var runRenderLoop: (_ controller: MetalRenderLoopController) -> Void
     
     var body: some View {
         if let device = metalState.device {
@@ -46,7 +46,7 @@ struct MetalViewPlus: View {
             device: device,
             renderEncoder: renderEncoder
         )
-        renderLoop(renderLoopController)
+        runRenderLoop(renderLoopController)
         
         renderEncoder.endEncoding()
         commandBuffer.present(drawable)
