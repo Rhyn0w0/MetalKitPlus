@@ -30,20 +30,17 @@ public struct MetalConfig {
 }
 
 public struct MetalState {
-    var device: MTLDevice?
     var commandQueue: MTLCommandQueue?
     var library: MTLLibrary?
     var renderPipelineState: MTLRenderPipelineState?
     var depthStencilState: MTLDepthStencilState?
     
     public init(
-        device: MTLDevice? = nil,
         commandQueue: MTLCommandQueue? = nil,
         library: MTLLibrary? = nil,
         renderPipelineState: MTLRenderPipelineState? = nil,
         depthStencilState: MTLDepthStencilState? = nil
     ) {
-        self.device = device
         self.commandQueue = commandQueue
         self.library = library
         self.renderPipelineState = renderPipelineState

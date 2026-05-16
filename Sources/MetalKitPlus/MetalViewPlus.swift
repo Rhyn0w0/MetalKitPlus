@@ -10,6 +10,7 @@ import MetalKit
 
 public struct MetalViewPlus: View {
     
+    @Environment(\.metalDevice) var device
     @Environment(\.metalState) var metalState
     var runRenderLoop: (_ controller: MetalRenderLoopController) -> Void
     
@@ -18,7 +19,7 @@ public struct MetalViewPlus: View {
     }
     
     public var body: some View {
-        if let device = metalState.device {
+        if let device = device {
             MetalView(device: device, draw: draw)
         }
         else {
@@ -27,7 +28,7 @@ public struct MetalViewPlus: View {
     }
     
     func draw(view: MTKView) {
-        guard let device = metalState.device else { return }
+        guard let device = device else { return }
         guard let drawable = view.currentDrawable else { return }
         guard let renderPassDescriptor = view.currentRenderPassDescriptor else { return }
         
