@@ -11,7 +11,11 @@ import MetalKit
 public struct MetalViewPlus: View {
     
     @Environment(\.metalDevice) var device
-    @Environment(\.metalState) var metalState
+    @Environment(\.metalCommandQueue) var commandQueue
+    @Environment(\.metalLibrary) var metalLibrary
+    @Environment(\.metalRenderPipelineState) var renderPipelineState
+    @Environment(\.metalDepthStencilState) var depthStencilState
+    
     var runRenderLoop: (_ controller: MetalRenderLoopController) -> Void
     
     public init(renderLoop: @escaping (_ controller: MetalRenderLoopController) -> Void) {
@@ -32,17 +36,17 @@ public struct MetalViewPlus: View {
         guard let drawable = view.currentDrawable else { return }
         guard let renderPassDescriptor = view.currentRenderPassDescriptor else { return }
         
-        guard let commandBuffer = metalState.commandQueue?.makeCommandBuffer() else {
+        guard let commandBuffer = commandQueue?.makeCommandBuffer() else {
             fatalError("failed to set up render encoding, no command buffer")
         }
         guard let renderEncoder = commandBuffer.makeRenderCommandEncoder(descriptor: renderPassDescriptor) else {
             fatalError("failed to set up render encoding, no render encoder")
         }
         
-        if let renderPipelineState = metalState.renderPipelineState {
+        if let renderPipelineState = renderPipelineState {
             renderEncoder.setRenderPipelineState(renderPipelineState)
         }
-        if let depthStencilState = metalState.depthStencilState {
+        if let depthStencilState = depthStencilState {
             renderEncoder.setDepthStencilState(depthStencilState)
         }
         
