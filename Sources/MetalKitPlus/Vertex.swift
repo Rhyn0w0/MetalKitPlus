@@ -16,7 +16,7 @@ public struct Vertex {
         self.colorRgb = colorRgb
     }
     
-    static func buildDefaultVertexDescriptor() -> MTLVertexDescriptor {
+    public static func buildDefaultVertexDescriptor() -> MTLVertexDescriptor {
         let vertexDescriptor = MTLVertexDescriptor()
         
         vertexDescriptor.attributes[0].format = .float3
