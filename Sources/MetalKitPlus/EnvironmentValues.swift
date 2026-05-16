@@ -7,9 +7,11 @@
 
 import Foundation
 import SwiftUI
+import MetalKit
 
 public extension EnvironmentValues {
     @Entry var metalConfig = MetalConfig()
+    @Entry var metalDevice = MTLCreateSystemDefaultDevice()
     @Entry var metalState = MetalState()
 }
 

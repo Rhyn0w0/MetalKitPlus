@@ -8,13 +8,13 @@
 import SwiftUI
 import MetalKit
 
-struct MetalViewPlus: View {
+public struct MetalViewPlus: View {
     
     @Environment(\.metalState) var metalState
     
     var runRenderLoop: (_ controller: MetalRenderLoopController) -> Void
     
-    var body: some View {
+    public var body: some View {
         if let device = metalState.device {
             MetalView(device: device, draw: draw)
         }
