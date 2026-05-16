@@ -52,7 +52,7 @@ public struct MetalViewPlus: View {
         
         let renderLoopController = MetalRenderLoopController(
             device: device,
-            renderEncoder: renderEncoder
+            encoder: renderEncoder
         )
         runRenderLoop(renderLoopController)
         

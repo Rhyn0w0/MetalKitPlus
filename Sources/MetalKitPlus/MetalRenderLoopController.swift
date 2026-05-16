@@ -9,7 +9,7 @@ import MetalKit
 
 public struct MetalRenderLoopController {
     let device: MTLDevice
-    let renderEncoder: MTLRenderCommandEncoder
+    let encoder: MTLRenderCommandEncoder
     
     public func drawVertices(_ vertices: [Vertex]) {
         guard let vertexBuffer = device.makeBuffer(bytes: vertices,
@@ -17,8 +17,8 @@ public struct MetalRenderLoopController {
                                                    options: []) else {
             fatalError("Failed to create Vertex Buffer")
         }
-        renderEncoder.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
-        renderEncoder.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: vertices.count)
+        encoder.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
+        encoder.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: vertices.count)
     }
     public func drawShape(_ shape: MetalShape) {
         drawVertices(shape.vertecies)
