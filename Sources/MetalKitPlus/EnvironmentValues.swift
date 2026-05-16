@@ -8,6 +8,11 @@
 import Foundation
 import SwiftUI
 
+public extension EnvironmentValues {
+    @Entry var metalConfig = MetalConfig()
+    @Entry var metalState = MetalState()
+}
+
 public struct MetalConfig {
     var clearColor: MTLClearColor = .init(red: 0, green: 0, blue: 0, alpha: 1)
     
@@ -22,6 +27,10 @@ public struct MetalConfig {
     var depthCompareFunction: MTLCompareFunction = .less
 }
 
-public extension EnvironmentValues {
-    @Entry var metalConfig = MetalConfig()
+public struct MetalState {
+    var device: MTLDevice?
+    var commandQueue: MTLCommandQueue?
+    var library: MTLLibrary?
+    var renderPipelineState: MTLRenderPipelineState?
+    var depthStencilState: MTLDepthStencilState?
 }

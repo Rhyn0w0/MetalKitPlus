@@ -8,17 +8,7 @@
 import Foundation
 import SwiftUI
 
-public extension EnvironmentValues {
-    @Entry var metalState = MetalState()
-}
 
-public struct MetalState {
-    var device: MTLDevice?
-    var commandQueue: MTLCommandQueue?
-    var library: MTLLibrary?
-    var renderPipelineState: MTLRenderPipelineState?
-    var depthStencilState: MTLDepthStencilState?
-}
 
 //extension MetalState {
 //    func makeDevice() {
